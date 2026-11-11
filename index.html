@@ -25,8 +25,8 @@
     .toolbar { display:-webkit-flex;display:flex;align-items:center;gap:10px; }
     .tool + .tool { margin-left:10px; }
     .tool { border:1px solid var(--border);background:var(--card);color:var(--text);min-width:42px;height:42px;padding:0 12px;border-radius:13px;font-size:19px; }
-    .tool:focus,.btn:focus,.event-remove:focus { outline:2px solid var(--accent); }
-    .grid { display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:minmax(252px,auto) minmax(250px,auto);gap:17px; }
+    .tool:focus,.btn:focus { outline:2px solid var(--accent); }
+    .grid { display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:auto;gap:17px;margin-top:17px; }
     .card { border:1px solid var(--border);background:var(--card);border-radius:24px;padding:24px 27px;box-shadow:0 12px 28px var(--shadow);overflow:hidden; }
     .eyebrow { color:var(--muted);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:700; }
     .clock-card { display:-webkit-flex;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,var(--card),var(--card2)); }
@@ -48,18 +48,7 @@
     .btn { color:var(--text);border:1px solid var(--border);background:var(--card2);padding:10px 14px;border-radius:12px;font-size:13px;font-weight:600;min-height:40px; }
     .accent { background:var(--accent);border-color:transparent;color:#192331; }
     body.light .accent { color:#fff; }
-    .events { padding-top:13px; }
-    .event { display:-webkit-flex;display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border); }
-    .event:last-child { border-bottom:0; }
-    .event-date { width:56px;min-width:56px;padding:8px 2px;text-align:center;border-radius:11px;background:var(--card2); }
-    .event-day { font-size:20px;font-weight:700;line-height:1; }
-    .event-month { margin-top:4px;color:var(--muted);font-size:10px;text-transform:uppercase; }
-    .event-name { font-size:16px;font-weight:600;line-height:1.3; }
-    .event-hour { color:var(--muted);font-size:12px;margin-top:4px; }
-    .event-content { flex:1;min-width:0; }
-    .event-remove { background:transparent;border:0;color:var(--muted);min-width:35px;min-height:40px;font-size:22px; }
-    .empty { color:var(--muted);font-size:15px;line-height:1.6;padding:22px 0 6px; }
-    .note-card { display:-webkit-flex;display:flex;flex-direction:column; }
+    .note-card { display:-webkit-flex;display:flex;flex-direction:column;grid-column:1 / -1; }
     .note { resize:none;width:100%;min-height:176px;flex:1;line-height:1.75;border:0;outline:0;color:var(--text);font-size:17px;background:transparent;margin-top:17px;padding:0; }
     .note::placeholder { color:var(--muted);opacity:.85; }
     .tiny { font-size:11px;color:var(--muted); }
@@ -74,15 +63,14 @@
     .modal-buttons { display:-webkit-flex;display:flex;justify-content:flex-end;gap:8px;margin-top:10px; }
     .help { font-size:12px;line-height:1.5;color:var(--muted);margin:8px 0 18px; }
     .weather-error { color:var(--muted);font-size:12px; }
-    @media (min-width:1200px) { .wrap{padding-top:38px;} .grid{grid-template-rows:minmax(300px,auto) minmax(310px,auto);} }
-    @media (max-width:800px) { .wrap { padding:19px 19px 16px; }.grid { gap:12px;grid-template-columns:1.2fr 1fr;grid-template-rows:minmax(240px,auto) minmax(260px,auto); }.card{padding:20px;border-radius:18px;} .clock{font-size:95px;font-size:clamp(70px,12vw,130px);} .weather-main{gap:5px;} .weather-icon{width:57px;font-size:48px;} .temperature{font-size:57px;} .weather-forecast{gap:5px;} .day-card{padding:9px 2px;} .section-title{font-size:20px;} .note{font-size:16px;} }
+    @media (min-width:1200px) { .wrap{padding-top:38px;} .grid{grid-template-rows:auto;} }
+    @media (max-width:800px) { .wrap { padding:19px 19px 16px; }.grid { gap:12px;grid-template-columns:1.2fr 1fr;grid-template-rows:auto; }.card{padding:20px;border-radius:18px;} .clock{font-size:95px;font-size:clamp(70px,12vw,130px);} .weather-main{gap:5px;} .weather-icon{width:57px;font-size:48px;} .temperature{font-size:57px;} .weather-forecast{gap:5px;} .day-card{padding:9px 2px;} .section-title{font-size:20px;} .note{font-size:16px;} }
     @media (max-width:650px) { .grid { grid-template-columns:1fr;grid-template-rows:auto; }.clock-card{min-height:252px}.weather-card{min-height:250px}.note{min-height:190px}.clock{font-size:120px;font-size:clamp(91px,20vw,135px)}.wrap{padding:17px 14px 23px}.card{padding:23px}.weather-main{gap:16px}.temperature{font-size:72px}footer{line-height:1.5;align-items:start} }
-    @media (max-height:710px) and (min-width:651px) { .wrap{padding-top:15px}.grid{grid-template-rows:minmax(210px,auto) minmax(210px,auto)}header{margin-bottom:12px}.card{padding-top:16px;padding-bottom:16px}.clock{margin-top:2px}.weather-main{margin:8px 0}.events{padding-top:7px}.event{padding:7px 0}.note{min-height:140px} }
+    @media (max-height:710px) and (min-width:651px) { .wrap{padding-top:15px}.grid{grid-template-rows:auto}header{margin-bottom:12px}.card{padding-top:16px;padding-bottom:16px}.clock{margin-top:2px}.weather-main{margin:8px 0}.events{padding-top:7px}.event{padding:7px 0}.note{min-height:140px} }
 
     /* Missions quotidiennes : grands boutons tactiles, compatibles Safari iOS 12. */
-    .quick-tasks { display:-webkit-inline-flex;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;padding:0 15px;color:var(--text);background:var(--card2); }
-    .quick-tasks:focus,.task-button:focus { outline:2px solid var(--accent);outline-offset:2px; }
-    .daily-section { margin-top:17px; padding:23px 27px 26px; }
+    .task-button:focus { outline:2px solid var(--accent);outline-offset:2px; }
+    .daily-section { margin-top:0; padding:23px 27px 26px; }
     .daily-heading { display:-webkit-flex;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:17px; }
     .daily-title { margin:0;font-size:25px;font-weight:700;letter-spacing:-.025em; }
     .daily-subtitle { font-size:13px;line-height:1.5;color:var(--muted);margin-top:5px; }
@@ -110,8 +98,36 @@
     .progress-message.completed { color:var(--green);font-weight:700; }
     .daily-foot { font-size:11px;line-height:1.5;color:var(--muted);margin-top:14px;text-align:right; }
     @media (max-width:800px) { .daily-section{padding:20px;} .child-card{padding:14px;} .task-button{font-size:15px;padding:9px;} .check-square{margin-right:9px;} .child-name{font-size:21px;} }
-    @media (max-width:650px) { .children-grid{grid-template-columns:1fr;} .daily-section{margin-top:12px;padding:20px 15px;} .daily-heading{align-items:center;} .daily-title{font-size:22px;} .daily-date{display:none;} .quick-tasks{font-size:17px;padding:0 10px;} .quick-tasks .quick-label{display:none;} .task-button{font-size:16px;} }
+    @media (max-width:650px) { .children-grid{grid-template-columns:1fr;} .daily-section{margin-top:0;padding:20px 15px;} .daily-heading{align-items:center;} .daily-title{font-size:22px;} .daily-date{display:none;} .task-button{font-size:16px;} }
 
+    /* Éditeur de missions, utilisable au doigt et au clavier, même hors ligne. */
+    .settings-modal { width:100%;max-width:590px;max-height:calc(100vh - 32px);overflow-y:auto;-webkit-overflow-scrolling:touch; }
+    .settings-heading-row { display:-webkit-flex;display:flex;align-items:center;justify-content:space-between; }
+    .settings-heading-row h2 { margin:0 0 13px; }
+    .modal-close { width:42px;height:42px;font-size:22px;line-height:1;padding:0; }
+    .settings-section { padding:3px 0 17px; }
+    .settings-section + .settings-section { border-top:1px solid var(--border);padding-top:20px; }
+    .settings-title { font-size:18px;letter-spacing:-.01em;font-weight:700;margin:0 0 8px; }
+    .settings-section .help { margin:5px 0 12px; }
+    .settings-compact-row { display:-webkit-flex;display:flex;align-items:center;gap:8px; }
+    .settings-compact-row .field { -webkit-flex:1;flex:1;margin-bottom:0; }
+    .settings-compact-row .btn { margin:19px 0 0 8px;min-height:44px;white-space:nowrap; }
+    .child-tabs { display:-webkit-flex;display:flex;margin:12px 0;gap:8px; }
+    .child-tab { -webkit-flex:1;flex:1;min-height:46px;border:1px solid var(--border);border-radius:12px;background:var(--card2);color:var(--text);font-weight:700;margin-right:8px;font-size:16px; }
+    .child-tab:last-child { margin-right:0; }
+    .child-tab.active { border:2px solid var(--accent);background:var(--card); }
+    .editor-row { display:-webkit-flex;display:flex;align-items:center;margin:8px 0; }
+    .editor-input,.editor-new-input { -webkit-flex:1;flex:1;min-width:0;width:100%;min-height:44px;padding:10px 12px;border-radius:11px;border:1px solid var(--border);background:var(--card2);color:var(--text);font-size:16px; }
+    .editor-delete { margin-left:8px;min-width:44px;width:44px;height:44px;padding:0;font-size:23px;color:#f2a8a6; }
+    .editor-add-row { display:-webkit-flex;display:flex;align-items:center;margin-top:12px; }
+    .editor-add-row .btn { margin-left:8px;min-height:44px;white-space:nowrap; }
+    .editor-save-row { display:-webkit-flex;display:flex;align-items:center;justify-content:space-between;margin-top:16px;gap:10px; }
+    .editor-save-row .btn { margin-left:12px;min-height:44px; }
+    .editor-status { color:var(--muted);font-size:12px;line-height:1.4;min-height:17px; }
+    .empty-tasks { color:var(--muted);font-size:13px;padding:10px 4px; }
+    .settings-modal .field input { margin-top:4px; }
+    @media (max-width:650px) { .settings-modal{padding:17px;} .settings-compact-row{display:block;} .settings-compact-row .btn{margin:10px 0 0;} }
+    @media (max-height:720px) { .modal-mask.visible { align-items:flex-start; } }
     @media (prefers-reduced-motion:reduce) { *,*:before,*:after{animation:none!important;transition:none!important} }
   </style>
 </head>
@@ -119,28 +135,8 @@
   <main class="wrap">
     <header>
       <div class="brand"><div class="home-mark" aria-hidden="true">⌂</div><div><div class="brand-name">Maison</div><div class="brand-sub">Le tableau de bord familial</div></div></div>
-      <div class="toolbar"><a class="tool quick-tasks" href="#daily-tasks" aria-label="Aller aux tâches des enfants">✓ <span class="quick-label">Tâches</span></a><button class="tool" id="theme-toggle" type="button" aria-label="Changer le thème" title="Thème clair/sombre">☼</button><button class="tool" id="refresh-weather" type="button" aria-label="Actualiser la météo" title="Actualiser la météo">↻</button><button class="tool" id="settings-open" type="button" aria-label="Réglages" title="Réglages">⚙</button></div>
+      <div class="toolbar"><button class="tool" id="theme-toggle" type="button" aria-label="Changer le thème" title="Thème clair/sombre">☼</button><button class="tool" id="refresh-weather" type="button" aria-label="Actualiser la météo" title="Actualiser la météo">↻</button><button class="tool" id="settings-open" type="button" aria-label="Réglages" title="Réglages">⚙</button></div>
     </header>
-    <div class="grid">
-      <section class="card clock-card" aria-label="Heure et date">
-        <div class="eyebrow">Aujourd'hui</div>
-        <div class="clock" id="clock">--:--</div>
-        <div><div class="date" id="date-long">Date du jour</div><div class="greeting" id="greeting">Bienvenue à la maison.</div></div>
-      </section>
-      <section class="card weather-card" aria-label="Météo">
-        <div class="weather-head"><div class="eyebrow" id="weather-place">Météo · Mutters</div><div class="tiny" id="weather-update">Chargement…</div></div>
-        <div class="weather-main"><div class="weather-icon" id="weather-icon" aria-hidden="true">☁</div><div><div class="temperature" id="temperature">--°</div><div class="weather-description" id="weather-description">Connexion météo…</div></div></div>
-        <div class="weather-forecast" id="forecast"><div class="day-card"><div class="day-name">—</div><div class="day-icon">·</div><div class="day-temp">—</div></div><div class="day-card"><div class="day-name">—</div><div class="day-icon">·</div><div class="day-temp">—</div></div><div class="day-card"><div class="day-name">—</div><div class="day-icon">·</div><div class="day-temp">—</div></div></div>
-      </section>
-      <section class="card" aria-label="Agenda familial">
-        <div class="section-head"><h2 class="section-title">À venir</h2><button class="btn accent" id="add-event" type="button">+ Événement</button></div>
-        <div class="events" id="events"><p class="empty">Aucun événement saisi. Utilise le bouton « + Événement » pour commencer.</p></div>
-      </section>
-      <section class="card note-card" aria-label="Notes familiales">
-        <div class="section-head"><h2 class="section-title">À ne pas oublier</h2><span class="tiny" id="notes-status">Mémo local</span></div>
-        <textarea class="note" id="notes" placeholder="Courses, petites choses à prévoir, idées pour le week-end…" aria-label="Notes familiales"></textarea>
-      </section>
-    </div>
     <section class="card daily-section" id="daily-tasks" aria-label="Tâches quotidiennes d’Arthur et Léa">
       <div class="daily-heading">
         <div><h2 class="daily-title">Les missions du jour <span aria-hidden="true">✦</span></h2><div class="daily-subtitle">Arthur et Léa, touchez une mission pour la valider. Un second toucher l'annule.</div></div>
@@ -162,13 +158,44 @@
       </div>
       <div class="daily-foot" id="task-save-status">✓ Les coches sont gardées sur cet iPad et repartent à zéro chaque nouveau jour.</div>
     </section>
-    <footer><span><span class="status-dot" aria-hidden="true"></span>Tableau de bord local · iPad mini 2 · V2</span><span>Météo : Open-Meteo · Agenda, notes et missions enregistrés sur cet appareil</span></footer>
+    <div class="grid">
+      <section class="card clock-card" aria-label="Heure et date">
+        <div class="eyebrow">Aujourd'hui</div>
+        <div class="clock" id="clock">--:--</div>
+        <div><div class="date" id="date-long">Date du jour</div><div class="greeting" id="greeting">Bienvenue à la maison.</div></div>
+      </section>
+      <section class="card weather-card" aria-label="Météo">
+        <div class="weather-head"><div class="eyebrow" id="weather-place">Météo · Mutters</div><div class="tiny" id="weather-update">Chargement…</div></div>
+        <div class="weather-main"><div class="weather-icon" id="weather-icon" aria-hidden="true">☁</div><div><div class="temperature" id="temperature">--°</div><div class="weather-description" id="weather-description">Connexion météo…</div></div></div>
+        <div class="weather-forecast" id="forecast"><div class="day-card"><div class="day-name">—</div><div class="day-icon">·</div><div class="day-temp">—</div></div><div class="day-card"><div class="day-name">—</div><div class="day-icon">·</div><div class="day-temp">—</div></div><div class="day-card"><div class="day-name">—</div><div class="day-icon">·</div><div class="day-temp">—</div></div></div>
+      </section>
+      <section class="card note-card" aria-label="Notes familiales">
+        <div class="section-head"><h2 class="section-title">À ne pas oublier</h2><span class="tiny" id="notes-status">Mémo local</span></div>
+        <textarea class="note" id="notes" placeholder="Courses, petites choses à prévoir, idées pour le week-end…" aria-label="Notes familiales"></textarea>
+      </section>
+    </div>
+    <footer><span><span class="status-dot" aria-hidden="true"></span>Tableau de bord local · iPad mini 2 · V4</span><span>Météo : Open-Meteo · Notes et missions enregistrées sur cet appareil</span></footer>
   </main>
-  <div class="modal-mask" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-heading">
-    <form class="modal" id="event-form"><h2 id="event-heading">Nouvel événement</h2><label class="field">Quoi ?<input type="text" id="event-title" placeholder="Ex. : Natation, rendez-vous…" required maxlength="90"></label><label class="field">Date<input type="date" id="event-date" required></label><label class="field">Heure (facultative)<input type="time" id="event-time"></label><div class="modal-buttons"><button class="btn" id="event-cancel" type="button">Annuler</button><button class="btn accent" type="submit">Enregistrer</button></div></form>
-  </div>
   <div class="modal-mask" id="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settings-heading">
-    <form class="modal" id="settings-form"><h2 id="settings-heading">Réglages</h2><label class="field">Ville pour la météo<input type="text" id="settings-city" placeholder="Mutters" maxlength="80" required></label><div class="help">La météo utilise une localisation approximative de la commune, sans géolocalisation de l'iPad. La recherche de nouvelles villes nécessite Internet.</div><div class="modal-buttons"><button class="btn" id="settings-cancel" type="button">Annuler</button><button class="btn accent" type="submit">Enregistrer</button></div></form>
+    <div class="modal settings-modal">
+      <div class="settings-heading-row"><h2 id="settings-heading">Réglages</h2><button class="btn modal-close" id="settings-cancel" type="button" aria-label="Fermer les réglages">×</button></div>
+      <section class="settings-section" aria-label="Paramètres météo">
+        <h3 class="settings-title">Météo</h3>
+        <form id="settings-form" class="settings-compact-row"><label class="field">Ville<input type="text" id="settings-city" placeholder="Mutters" maxlength="80" required></label><button class="btn" type="submit">Enregistrer la ville</button></form>
+        <div class="help">La météo utilise la ville choisie. La recherche d'une nouvelle ville nécessite Internet.</div>
+      </section>
+      <section class="settings-section" aria-labelledby="editor-heading">
+        <h3 class="settings-title" id="editor-heading">Missions quotidiennes</h3>
+        <p class="help">Ajoute, renomme ou retire les missions de chaque enfant. Les modifications resteront enregistrées sur cet iPad.</p>
+        <div class="child-tabs" aria-label="Choisir l’enfant">
+          <button class="child-tab active" type="button" id="tab-arthur" aria-pressed="true">Arthur</button>
+          <button class="child-tab" type="button" id="tab-lea" aria-pressed="false">Léa</button>
+        </div>
+        <div id="task-editor-list" aria-label="Liste des missions modifiables"></div>
+        <div class="editor-add-row"><input class="editor-new-input" type="text" id="new-task-name" placeholder="Nouvelle mission…" maxlength="80" aria-label="Nom de la nouvelle mission"><button class="btn" id="add-task" type="button">+ Ajouter</button></div>
+        <div class="editor-save-row"><span class="editor-status" id="editor-status">Enregistre pour appliquer les changements.</span><button class="btn accent" id="save-tasks" type="button">Enregistrer les missions</button></div>
+      </section>
+    </div>
   </div>
   <script>
     (function () {
@@ -180,68 +207,164 @@
       function two(n){return n<10?'0'+n:''+n;}
       function dateKey(d){return d.getFullYear()+'-'+two(d.getMonth()+1)+'-'+two(d.getDate());}
       function capitalize(s){return s?s.charAt(0).toUpperCase()+s.slice(1):'';}
-      function shortDate(dateString){var p=dateString.split('-');return {day:p[2],month: ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'][Number(p[1])-1]};}
       function dayName(dateString){var p=dateString.split('-'),d=new Date(Number(p[0]),Number(p[1])-1,Number(p[2]));return ['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'][d.getDay()];}
       function setText(id,value){el(id).textContent=value;}
-      function tick(){var n=new Date();setText('clock',two(n.getHours())+':'+two(n.getMinutes()));var days=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];var months=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];setText('date-long',capitalize(days[n.getDay()])+' '+n.getDate()+' '+months[n.getMonth()]+' '+n.getFullYear());setText('greeting',n.getHours()<11?'Belle matinée à la maison.':(n.getHours()<18?'Belle journée à la maison.':'Bonne soirée à la maison.'));var t=dateKey(n);if(t!==lastDate){lastDate=t;renderEvents();ensureDailyTasks();}}
+      function tick(){var n=new Date();setText('clock',two(n.getHours())+':'+two(n.getMinutes()));var days=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];var months=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];setText('date-long',capitalize(days[n.getDay()])+' '+n.getDate()+' '+months[n.getMonth()]+' '+n.getFullYear());setText('greeting',n.getHours()<11?'Belle matinée à la maison.':(n.getHours()<18?'Belle journée à la maison.':'Bonne soirée à la maison.'));var t=dateKey(n);if(t!==lastDate){lastDate=t;ensureDailyTasks();}}
       var lastDate='';
-      // Missions des enfants. Même préfixe que la V1 pour conserver agenda et mémo.
-      var taskNames=['Devoirs faits','Lecture','Anglais','Préparé son sac','Préparé ses vêtements pour demain'];
+      // Même espace local que les V1/V2/V3 : les données existantes sont préservées.
+      var defaultTaskNames=['Devoirs faits','Lecture','Anglais','Préparé son sac','Préparé ses vêtements pour demain'];
+      function defaultDefinitions(){
+        var out={arthur:[],lea:[]};
+        for(var i=0;i<defaultTaskNames.length;i++){
+          out.arthur.push({id:'arthur-default-'+i,label:defaultTaskNames[i]});
+          out.lea.push({id:'lea-default-'+i,label:defaultTaskNames[i]});
+        }
+        return out;
+      }
+      function copyDefinitions(source){
+        var out={arthur:[],lea:[]},children=['arthur','lea'];
+        for(var c=0;c<children.length;c++){
+          var who=children[c],sourceItems=source&&source[who];
+          if(!Array.isArray(sourceItems))return defaultDefinitions();
+          var seen={};
+          for(var i=0;i<sourceItems.length&&i<30;i++){
+            var item=sourceItems[i];
+            if(!item||typeof item.id!=='string'||!/^[a-zA-Z0-9-]+$/.test(item.id)||seen[item.id]||typeof item.label!=='string')continue;
+            var label=item.label.replace(/^\s+|\s+$/g,'').slice(0,80);
+            if(!label)continue;
+            out[who].push({id:item.id,label:label});seen[item.id]=true;
+          }
+        }
+        return out;
+      }
+      var taskDefinitions=copyDefinitions(read('task-definitions',defaultDefinitions()));
       var taskData=read('daily-tasks',null);
-      function emptyTaskData(today){return {date:today,arthur:[false,false,false,false,false],lea:[false,false,false,false,false]};}
+      function freshTaskData(today){return {date:today,arthur:{},lea:{}};}
+      function migrateTaskData(today){
+        var migrated=freshTaskData(today);
+        if(taskData&&taskData.date===today){
+          var whoList=['arthur','lea'];
+          for(var c=0;c<whoList.length;c++){
+            var who=whoList[c],old=taskData[who];
+            if(Array.isArray(old)){
+              // Ancienne V2/V3 : les cinq cases étaient identifiées par leur position.
+              for(var j=0;j<old.length&&j<5;j++){
+                if(old[j]===true)migrated[who][who+'-default-'+j]=true;
+              }
+            }else if(old&&typeof old==='object'){
+              for(var k=0;k<taskDefinitions[who].length;k++){
+                var id=taskDefinitions[who][k].id;
+                if(old[id]===true)migrated[who][id]=true;
+              }
+            }
+          }
+        }
+        taskData=migrated;
+        if(!save('daily-tasks',taskData))setText('task-save-status','⚠ Sauvegarde locale indisponible.');
+      }
       function ensureDailyTasks(){
         var today=dateKey(new Date());
-        if(!taskData||taskData.date!==today||!Array.isArray(taskData.arthur)||!Array.isArray(taskData.lea)||taskData.arthur.length!==5||taskData.lea.length!==5){
-          taskData=emptyTaskData(today);
-          if(!save('daily-tasks',taskData)){setText('task-save-status','⚠ Impossible de sauvegarder les coches sur cet appareil.');}
+        if(!taskData||taskData.date!==today||!taskData.arthur||!taskData.lea||Array.isArray(taskData.arthur)||Array.isArray(taskData.lea)){
+          migrateTaskData(today);
           renderDailyTasks();
         }
       }
-      function toggleTask(child,index){
+      function toggleTask(child,id){
         ensureDailyTasks();
-        taskData[child][index]=!taskData[child][index];
-        if(!save('daily-tasks',taskData)){setText('task-save-status','⚠ Impossible de sauvegarder les coches sur cet appareil.');}
-        else{setText('task-save-status','✓ Les coches sont gardées sur cet iPad et repartent à zéro chaque nouveau jour.');}
+        if(taskData[child][id]===true)delete taskData[child][id];
+        else taskData[child][id]=true;
+        if(!save('daily-tasks',taskData))setText('task-save-status','⚠ Impossible de sauvegarder les coches sur cet appareil.');
+        else setText('task-save-status','✓ Les coches sont gardées sur cet iPad et repartent à zéro chaque jour.');
         renderChildTasks(child);
       }
       function renderChildTasks(child){
-        var root=el(child+'-tasks'),done=0;
+        var root=el(child+'-tasks'),done=0,items=taskDefinitions[child],total=items.length;
         while(root.firstChild)root.removeChild(root.firstChild);
-        for(var i=0;i<taskNames.length;i++){
-          (function(index){
-            var checked=taskData[child][index]===true;
+        for(var i=0;i<total;i++){
+          (function(item){
+            var checked=taskData[child][item.id]===true;
             if(checked)done++;
             var button=document.createElement('button');
-            button.type='button';
-            button.className='task-button'+(checked?' is-done':'');
+            button.type='button';button.className='task-button'+(checked?' is-done':'');
             button.setAttribute('aria-pressed',checked?'true':'false');
-            button.setAttribute('aria-label',taskNames[index]+' — '+(checked?'fait':'à faire'));
-            var check=document.createElement('span');
-            check.className='check-square';check.setAttribute('aria-hidden','true');check.textContent='✓';
-            var text=document.createElement('span');text.className='task-label';text.textContent=taskNames[index];
+            button.setAttribute('aria-label',item.label+' — '+(checked?'fait':'à faire'));
+            var check=document.createElement('span');check.className='check-square';check.setAttribute('aria-hidden','true');check.textContent='✓';
+            var text=document.createElement('span');text.className='task-label';text.textContent=item.label;
             button.appendChild(check);button.appendChild(text);
-            button.addEventListener('click',function(){toggleTask(child,index);});
+            button.addEventListener('click',function(){toggleTask(child,item.id);});
             root.appendChild(button);
-          })(i);
+          })(items[i]);
         }
-        setText(child+'-count',done+' / '+taskNames.length);
-        el(child+'-bar').style.width=(done/taskNames.length*100)+'%';
+        if(total===0){var empty=document.createElement('div');empty.className='empty-tasks';empty.textContent='Aucune mission pour le moment.';root.appendChild(empty);}
+        setText(child+'-count',done+' / '+total);
+        el(child+'-bar').style.width=(total?done/total*100:0)+'%';
+        el(child+'-progress').setAttribute('aria-valuemax',String(total));
         el(child+'-progress').setAttribute('aria-valuenow',String(done));
         var status=el(child+'-message');
-        status.className='progress-message'+(done===taskNames.length?' completed':'');
-        status.textContent=done===taskNames.length?'Bravo ! Tout est fait pour aujourd’hui 🎉':(done===0?'C’est parti !':(taskNames.length-done)+' mission'+(taskNames.length-done>1?'s':'')+' encore à faire');
+        status.className='progress-message'+(total>0&&done===total?' completed':'');
+        status.textContent=total===0?'Ajoute une mission dans les réglages.':(done===total?'Bravo ! Tout est fait pour aujourd’hui 🎉':(done===0?'C’est parti !':(total-done)+' mission'+(total-done>1?'s':'')+' encore à faire'));
       }
       function renderDailyTasks(){
         setText('tasks-today','Aujourd’hui · '+taskData.date.split('-').reverse().join('/'));
         renderChildTasks('arthur');renderChildTasks('lea');
       }
 
-      var events=read('events',[]);if(!Array.isArray(events))events=[];
-      function renderEvents(){var today=dateKey(new Date());var upcoming=events.filter(function(e){return e&&typeof e.title==='string'&&typeof e.date==='string'&&e.date>=today;}).sort(function(a,b){return (a.date+' '+(a.time||'99:99')).localeCompare(b.date+' '+(b.time||'99:99'));}).slice(0,4);var list=el('events');while(list.firstChild)list.removeChild(list.firstChild);if(!upcoming.length){var p=document.createElement('p');p.className='empty';p.textContent='Aucun événement à venir. Ajoute un rendez-vous ou une activité familiale.';list.appendChild(p);return;}upcoming.forEach(function(e){var row=document.createElement('div');row.className='event';var dt=document.createElement('div');dt.className='event-date';var date=shortDate(e.date);var d=document.createElement('div');d.className='event-day';d.textContent=date.day;var m=document.createElement('div');m.className='event-month';m.textContent=date.month;dt.appendChild(d);dt.appendChild(m);var content=document.createElement('div');content.className='event-content';var name=document.createElement('div');name.className='event-name';name.textContent=e.title;var when=document.createElement('div');when.className='event-hour';when.textContent=capitalize(dayName(e.date))+(e.time?' · '+e.time:' · toute la journée');content.appendChild(name);content.appendChild(when);var remove=document.createElement('button');remove.className='event-remove';remove.textContent='×';remove.title='Supprimer';remove.setAttribute('aria-label','Supprimer '+e.title);remove.addEventListener('click',function(){if(window.confirm('Supprimer « '+e.title+' » ?')){events=events.filter(function(item){return item.id!==e.id;});save('events',events);renderEvents();}});row.appendChild(dt);row.appendChild(content);row.appendChild(remove);list.appendChild(row);});}
+      // Modifications en brouillon : rien ne change tant que l'adulte ne valide pas.
+      var draftDefinitions=null,editorChild='arthur';
+      function editorChanged(){setText('editor-status','Modifications non enregistrées.');}
+      function renderTaskEditor(){
+        var who=editorChild,root=el('task-editor-list');
+        el('tab-arthur').className='child-tab'+(who==='arthur'?' active':'');
+        el('tab-lea').className='child-tab'+(who==='lea'?' active':'');
+        el('tab-arthur').setAttribute('aria-pressed',who==='arthur'?'true':'false');
+        el('tab-lea').setAttribute('aria-pressed',who==='lea'?'true':'false');
+        while(root.firstChild)root.removeChild(root.firstChild);
+        for(var i=0;i<draftDefinitions[who].length;i++){
+          (function(item){
+            var row=document.createElement('div');row.className='editor-row';
+            var input=document.createElement('input');input.type='text';input.className='editor-input';input.maxLength=80;input.value=item.label;
+            input.setAttribute('aria-label','Modifier la mission '+item.label);
+            input.addEventListener('input',function(){item.label=input.value;editorChanged();});
+            var remove=document.createElement('button');remove.type='button';remove.className='btn editor-delete';remove.textContent='×';
+            remove.setAttribute('aria-label','Supprimer la mission '+item.label);
+            remove.addEventListener('click',function(){
+              var list=draftDefinitions[who];
+              for(var k=0;k<list.length;k++)if(list[k].id===item.id){list.splice(k,1);break;}
+              editorChanged();renderTaskEditor();
+            });
+            row.appendChild(input);row.appendChild(remove);root.appendChild(row);
+          })(draftDefinitions[who][i]);
+        }
+        if(!draftDefinitions[who].length){var empty=document.createElement('div');empty.className='empty-tasks';empty.textContent='Aucune mission : ajoute la première ci-dessous.';root.appendChild(empty);}
+        el('new-task-name').value='';
+      }
+      function createTaskId(){return 't-'+String(Date.now())+'-'+String(Math.floor(Math.random()*100000000));}
+      function addEditorTask(){
+        var label=el('new-task-name').value.replace(/^\s+|\s+$/g,'');
+        if(!label){el('new-task-name').focus();return;}
+        if(draftDefinitions[editorChild].length>=30){window.alert('Limite de 30 missions par enfant.');return;}
+        draftDefinitions[editorChild].push({id:createTaskId(),label:label.slice(0,80)});
+        editorChanged();renderTaskEditor();el('new-task-name').focus();
+      }
+      function saveEditorTasks(){
+        for(var c=0;c<2;c++){
+          var who=c===0?'arthur':'lea';
+          for(var i=0;i<draftDefinitions[who].length;i++){
+            var item=draftDefinitions[who][i];
+            item.label=item.label.replace(/^\s+|\s+$/g,'');
+            if(!item.label){editorChild=who;renderTaskEditor();window.alert('Une mission de '+(who==='arthur'?'Arthur':'Léa')+' n’a pas de nom.');return;}
+          }
+        }
+        var result=copyDefinitions(draftDefinitions);
+        if(!save('task-definitions',result)){setText('editor-status','⚠ Enregistrement impossible sur cet appareil.');return;}
+        taskDefinitions=result;draftDefinitions=copyDefinitions(result);
+        ensureDailyTasks();renderDailyTasks();
+        setText('editor-status','✓ Missions enregistrées sur cet iPad.');
+        setText('task-save-status','✓ Les missions sont personnalisables dans les réglages.');
+        renderTaskEditor();
+      }
+
       function modal(id,show){el(id).className=show?'modal-mask visible':'modal-mask';}
-      el('add-event').addEventListener('click',function(){el('event-form').reset();el('event-date').value=dateKey(new Date());modal('event-modal',true);});
-      el('event-cancel').addEventListener('click',function(){modal('event-modal',false);});
-      el('event-form').addEventListener('submit',function(evt){evt.preventDefault();var title=el('event-title').value.replace(/^\s+|\s+$/g,'');var date=el('event-date').value;var time=el('event-time').value;if(!title||!/^\d{4}-\d{2}-\d{2}$/.test(date))return;events.push({id:Date.now()+'-'+Math.floor(Math.random()*99999),title:title,date:date,time:time});if(!save('events',events)){window.alert('Impossible de sauvegarder sur cet appareil. Vérifie que Safari ne soit pas en navigation privée.');}renderEvents();modal('event-modal',false);});
       var notes=read('notes','');el('notes').value=typeof notes==='string'?notes:'';
       el('notes').addEventListener('input',function(){if(save('notes',el('notes').value)){setText('notes-status','Enregistré sur cet iPad');}else{setText('notes-status','Sauvegarde indisponible');}});
       var light=read('light',false);function applyTheme(){document.body.className=light?'light':'';el('theme-toggle').textContent=light?'☾':'☼';}applyTheme();el('theme-toggle').addEventListener('click',function(){light=!light;save('light',light);applyTheme();});
@@ -253,10 +376,32 @@
       var refreshing=false;
       function refreshWeather(){if(refreshing)return;refreshing=true;setText('weather-place','Météo · '+city.name);setText('weather-update','Chargement…');var url='https://api.open-meteo.com/v1/forecast?latitude='+encodeURIComponent(city.lat)+'&longitude='+encodeURIComponent(city.long)+'&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FVienna&forecast_days=3';requestJSON(url,function(err,data){refreshing=false;if(!err&&displayWeather(data,false)){save('weather',{at:Date.now(),city:city.name,data:data});}else{var cached=read('weather',null);if(cached&&cached.city===city.name&&displayWeather(cached.data,true)){setText('weather-update','Hors ligne · anciennes données');}else{setText('weather-update','Indisponible');setText('weather-description','Vérifie la connexion Wi-Fi');}}});}
       el('refresh-weather').addEventListener('click',refreshWeather);
-      el('settings-open').addEventListener('click',function(){el('settings-city').value=city.name;modal('settings-modal',true);});
+      el('settings-open').addEventListener('click',function(){
+        el('settings-city').value=city.name;draftDefinitions=copyDefinitions(taskDefinitions);editorChild='arthur';
+        renderTaskEditor();setText('editor-status','Enregistre pour appliquer les changements.');modal('settings-modal',true);
+      });
       el('settings-cancel').addEventListener('click',function(){modal('settings-modal',false);});
-      el('settings-form').addEventListener('submit',function(evt){evt.preventDefault();var name=el('settings-city').value.replace(/^\s+|\s+$/g,'');if(!name)return;var lowered=name.toLowerCase();if(lowered==='mutters'){city={name:'Mutters',lat:47.228,long:11.378};save('city',city);modal('settings-modal',false);refreshWeather();return;}if(lowered==='innsbruck'){city={name:'Innsbruck',lat:47.2692,long:11.4041};save('city',city);modal('settings-modal',false);refreshWeather();return;}var url='https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(name)+'&count=1&language=fr&format=json';setText('weather-update','Recherche de la ville…');requestJSON(url,function(err,data){if(err||!data||!data.results||!data.results.length){window.alert('Ville introuvable ou connexion indisponible. Réessaie avec un autre nom.');return;}var place=data.results[0];city={name:place.name,lat:place.latitude,long:place.longitude};save('city',city);modal('settings-modal',false);refreshWeather();});});
-      ensureDailyTasks();renderDailyTasks();tick();window.setInterval(tick,10000);renderEvents();var cache=read('weather',null);if(cache&&cache.city===city.name)displayWeather(cache.data,true);refreshWeather();window.setInterval(refreshWeather,30*60*1000);
+      el('tab-arthur').addEventListener('click',function(){editorChild='arthur';renderTaskEditor();});
+      el('tab-lea').addEventListener('click',function(){editorChild='lea';renderTaskEditor();});
+      el('add-task').addEventListener('click',addEditorTask);
+      el('new-task-name').addEventListener('keydown',function(evt){if(evt.key==='Enter'||evt.keyCode===13){evt.preventDefault();addEditorTask();}});
+      el('save-tasks').addEventListener('click',saveEditorTasks);
+      el('settings-form').addEventListener('submit',function(evt){
+        evt.preventDefault();var name=el('settings-city').value.replace(/^\s+|\s+$/g,'');if(!name)return;
+        var lowered=name.toLowerCase();
+        if(lowered===city.name.toLowerCase()){setText('editor-status','Ville inchangée.');return;}
+        if(lowered==='mutters'||lowered==='innsbruck'){
+          city=lowered==='mutters'?{name:'Mutters',lat:47.228,long:11.378}:{name:'Innsbruck',lat:47.2692,long:11.4041};
+          save('city',city);refreshWeather();setText('editor-status','✓ Ville enregistrée.');return;
+        }
+        var url='https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(name)+'&count=1&language=fr&format=json';
+        requestJSON(url,function(err,data){
+          if(err||!data||!data.results||!data.results.length){window.alert('Ville introuvable ou connexion indisponible. Réessaie avec un autre nom.');return;}
+          var place=data.results[0];city={name:place.name,lat:place.latitude,long:place.longitude};save('city',city);
+          refreshWeather();setText('editor-status','✓ Ville enregistrée.');
+        });
+      });
+      ensureDailyTasks();renderDailyTasks();tick();window.setInterval(tick,10000);var cache=read('weather',null);if(cache&&cache.city===city.name)displayWeather(cache.data,true);refreshWeather();window.setInterval(refreshWeather,30*60*1000);
       document.addEventListener('visibilitychange',function(){if(!document.hidden){tick();refreshWeather();}});
     })();
   </script>
