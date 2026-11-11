@@ -78,6 +78,40 @@
     @media (max-width:800px) { .wrap { padding:19px 19px 16px; }.grid { gap:12px;grid-template-columns:1.2fr 1fr;grid-template-rows:minmax(240px,auto) minmax(260px,auto); }.card{padding:20px;border-radius:18px;} .clock{font-size:95px;font-size:clamp(70px,12vw,130px);} .weather-main{gap:5px;} .weather-icon{width:57px;font-size:48px;} .temperature{font-size:57px;} .weather-forecast{gap:5px;} .day-card{padding:9px 2px;} .section-title{font-size:20px;} .note{font-size:16px;} }
     @media (max-width:650px) { .grid { grid-template-columns:1fr;grid-template-rows:auto; }.clock-card{min-height:252px}.weather-card{min-height:250px}.note{min-height:190px}.clock{font-size:120px;font-size:clamp(91px,20vw,135px)}.wrap{padding:17px 14px 23px}.card{padding:23px}.weather-main{gap:16px}.temperature{font-size:72px}footer{line-height:1.5;align-items:start} }
     @media (max-height:710px) and (min-width:651px) { .wrap{padding-top:15px}.grid{grid-template-rows:minmax(210px,auto) minmax(210px,auto)}header{margin-bottom:12px}.card{padding-top:16px;padding-bottom:16px}.clock{margin-top:2px}.weather-main{margin:8px 0}.events{padding-top:7px}.event{padding:7px 0}.note{min-height:140px} }
+
+    /* Missions quotidiennes : grands boutons tactiles, compatibles Safari iOS 12. */
+    .quick-tasks { display:-webkit-inline-flex;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;padding:0 15px;color:var(--text);background:var(--card2); }
+    .quick-tasks:focus,.task-button:focus { outline:2px solid var(--accent);outline-offset:2px; }
+    .daily-section { margin-top:17px; padding:23px 27px 26px; }
+    .daily-heading { display:-webkit-flex;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:17px; }
+    .daily-title { margin:0;font-size:25px;font-weight:700;letter-spacing:-.025em; }
+    .daily-subtitle { font-size:13px;line-height:1.5;color:var(--muted);margin-top:5px; }
+    .daily-date { color:var(--muted);font-size:12px;padding:8px 11px;background:var(--card2);border-radius:10px;white-space:nowrap; }
+    .children-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px; }
+    .child-card { background:var(--card2);border:1px solid var(--border);border-radius:19px;padding:18px 18px 15px;min-width:0; }
+    .child-heading { display:-webkit-flex;display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:10px; }
+    .child-name-wrap { display:-webkit-flex;display:flex;align-items:center; }
+    .child-avatar { width:36px;height:36px;min-width:36px;margin-right:10px;border-radius:12px;text-align:center;line-height:36px;font-size:17px;font-weight:800;color:#162536; }
+    .child-arthur .child-avatar { background:#90c9ee; }
+    .child-lea .child-avatar { background:#f1b9d3; }
+    .child-name { font-size:23px;font-weight:750;letter-spacing:-.03em; }
+    .child-count { color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap; }
+    .task-list { display:block; }
+    .task-button + .task-button { margin-top:7px; }
+    .task-button { display:-webkit-flex;display:flex;align-items:center;width:100%;min-height:53px;border-radius:13px;border:1px solid var(--border);background:var(--card);color:var(--text);padding:10px 13px;text-align:left;font-size:16px;line-height:1.25;touch-action:manipulation;-webkit-tap-highlight-color:transparent; }
+    .task-button:active { transform:scale(.992); }
+    .task-button .check-square { display:-webkit-flex;display:flex;align-items:center;justify-content:center;width:28px;height:28px;min-width:28px;margin-right:12px;border:2px solid var(--muted);border-radius:9px;background:transparent;color:transparent;font-size:21px;font-weight:800;line-height:1; }
+    .task-button.is-done .check-square { border-color:#48b58c;background:#48b58c;color:#0d3426; }
+    .task-button .task-label { flex:1; }
+    .task-button.is-done .task-label { opacity:.68;text-decoration:line-through; }
+    .progress-track { width:100%;height:8px;background:var(--card);border-radius:999px;overflow:hidden;margin-top:16px; }
+    .progress-fill { width:0;height:100%;background:#62c8a4;border-radius:999px;transition:width .18s ease; }
+    .progress-message { font-size:12px;color:var(--muted);margin-top:9px;min-height:17px; }
+    .progress-message.completed { color:var(--green);font-weight:700; }
+    .daily-foot { font-size:11px;line-height:1.5;color:var(--muted);margin-top:14px;text-align:right; }
+    @media (max-width:800px) { .daily-section{padding:20px;} .child-card{padding:14px;} .task-button{font-size:15px;padding:9px;} .check-square{margin-right:9px;} .child-name{font-size:21px;} }
+    @media (max-width:650px) { .children-grid{grid-template-columns:1fr;} .daily-section{margin-top:12px;padding:20px 15px;} .daily-heading{align-items:center;} .daily-title{font-size:22px;} .daily-date{display:none;} .quick-tasks{font-size:17px;padding:0 10px;} .quick-tasks .quick-label{display:none;} .task-button{font-size:16px;} }
+
     @media (prefers-reduced-motion:reduce) { *,*:before,*:after{animation:none!important;transition:none!important} }
   </style>
 </head>
@@ -85,7 +119,7 @@
   <main class="wrap">
     <header>
       <div class="brand"><div class="home-mark" aria-hidden="true">⌂</div><div><div class="brand-name">Maison</div><div class="brand-sub">Le tableau de bord familial</div></div></div>
-      <div class="toolbar"><button class="tool" id="theme-toggle" type="button" aria-label="Changer le thème" title="Thème clair/sombre">☼</button><button class="tool" id="refresh-weather" type="button" aria-label="Actualiser la météo" title="Actualiser la météo">↻</button><button class="tool" id="settings-open" type="button" aria-label="Réglages" title="Réglages">⚙</button></div>
+      <div class="toolbar"><a class="tool quick-tasks" href="#daily-tasks" aria-label="Aller aux tâches des enfants">✓ <span class="quick-label">Tâches</span></a><button class="tool" id="theme-toggle" type="button" aria-label="Changer le thème" title="Thème clair/sombre">☼</button><button class="tool" id="refresh-weather" type="button" aria-label="Actualiser la météo" title="Actualiser la météo">↻</button><button class="tool" id="settings-open" type="button" aria-label="Réglages" title="Réglages">⚙</button></div>
     </header>
     <div class="grid">
       <section class="card clock-card" aria-label="Heure et date">
@@ -107,7 +141,28 @@
         <textarea class="note" id="notes" placeholder="Courses, petites choses à prévoir, idées pour le week-end…" aria-label="Notes familiales"></textarea>
       </section>
     </div>
-    <footer><span><span class="status-dot" aria-hidden="true"></span>Tableau de bord local · Version iPad mini 2</span><span>Météo : Open-Meteo · Agenda et notes enregistrés sur cet appareil</span></footer>
+    <section class="card daily-section" id="daily-tasks" aria-label="Tâches quotidiennes d’Arthur et Léa">
+      <div class="daily-heading">
+        <div><h2 class="daily-title">Les missions du jour <span aria-hidden="true">✦</span></h2><div class="daily-subtitle">Arthur et Léa, touchez une mission pour la valider. Un second toucher l'annule.</div></div>
+        <div class="daily-date" id="tasks-today">Aujourd'hui</div>
+      </div>
+      <div class="children-grid">
+        <section class="child-card child-arthur" aria-label="Missions d’Arthur">
+          <div class="child-heading"><div class="child-name-wrap"><span class="child-avatar" aria-hidden="true">A</span><span class="child-name">Arthur</span></div><span class="child-count" id="arthur-count">0 / 5</span></div>
+          <div class="task-list" id="arthur-tasks"></div>
+          <div class="progress-track" id="arthur-progress" role="progressbar" aria-label="Progrès d’Arthur" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><div class="progress-fill" id="arthur-bar"></div></div>
+          <div class="progress-message" id="arthur-message" aria-live="polite">C'est parti !</div>
+        </section>
+        <section class="child-card child-lea" aria-label="Missions de Léa">
+          <div class="child-heading"><div class="child-name-wrap"><span class="child-avatar" aria-hidden="true">L</span><span class="child-name">Léa</span></div><span class="child-count" id="lea-count">0 / 5</span></div>
+          <div class="task-list" id="lea-tasks"></div>
+          <div class="progress-track" id="lea-progress" role="progressbar" aria-label="Progrès de Léa" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><div class="progress-fill" id="lea-bar"></div></div>
+          <div class="progress-message" id="lea-message" aria-live="polite">C'est parti !</div>
+        </section>
+      </div>
+      <div class="daily-foot" id="task-save-status">✓ Les coches sont gardées sur cet iPad et repartent à zéro chaque nouveau jour.</div>
+    </section>
+    <footer><span><span class="status-dot" aria-hidden="true"></span>Tableau de bord local · iPad mini 2 · V2</span><span>Météo : Open-Meteo · Agenda, notes et missions enregistrés sur cet appareil</span></footer>
   </main>
   <div class="modal-mask" id="event-modal" role="dialog" aria-modal="true" aria-labelledby="event-heading">
     <form class="modal" id="event-form"><h2 id="event-heading">Nouvel événement</h2><label class="field">Quoi ?<input type="text" id="event-title" placeholder="Ex. : Natation, rendez-vous…" required maxlength="90"></label><label class="field">Date<input type="date" id="event-date" required></label><label class="field">Heure (facultative)<input type="time" id="event-time"></label><div class="modal-buttons"><button class="btn" id="event-cancel" type="button">Annuler</button><button class="btn accent" type="submit">Enregistrer</button></div></form>
@@ -128,8 +183,59 @@
       function shortDate(dateString){var p=dateString.split('-');return {day:p[2],month: ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'][Number(p[1])-1]};}
       function dayName(dateString){var p=dateString.split('-'),d=new Date(Number(p[0]),Number(p[1])-1,Number(p[2]));return ['dim.','lun.','mar.','mer.','jeu.','ven.','sam.'][d.getDay()];}
       function setText(id,value){el(id).textContent=value;}
-      function tick(){var n=new Date();setText('clock',two(n.getHours())+':'+two(n.getMinutes()));var days=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];var months=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];setText('date-long',capitalize(days[n.getDay()])+' '+n.getDate()+' '+months[n.getMonth()]+' '+n.getFullYear());setText('greeting',n.getHours()<11?'Belle matinée à la maison.':(n.getHours()<18?'Belle journée à la maison.':'Bonne soirée à la maison.'));var t=dateKey(n);if(t!==lastDate){lastDate=t;renderEvents();}}
+      function tick(){var n=new Date();setText('clock',two(n.getHours())+':'+two(n.getMinutes()));var days=['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];var months=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];setText('date-long',capitalize(days[n.getDay()])+' '+n.getDate()+' '+months[n.getMonth()]+' '+n.getFullYear());setText('greeting',n.getHours()<11?'Belle matinée à la maison.':(n.getHours()<18?'Belle journée à la maison.':'Bonne soirée à la maison.'));var t=dateKey(n);if(t!==lastDate){lastDate=t;renderEvents();ensureDailyTasks();}}
       var lastDate='';
+      // Missions des enfants. Même préfixe que la V1 pour conserver agenda et mémo.
+      var taskNames=['Devoirs faits','Lecture','Anglais','Préparé son sac','Préparé ses vêtements pour demain'];
+      var taskData=read('daily-tasks',null);
+      function emptyTaskData(today){return {date:today,arthur:[false,false,false,false,false],lea:[false,false,false,false,false]};}
+      function ensureDailyTasks(){
+        var today=dateKey(new Date());
+        if(!taskData||taskData.date!==today||!Array.isArray(taskData.arthur)||!Array.isArray(taskData.lea)||taskData.arthur.length!==5||taskData.lea.length!==5){
+          taskData=emptyTaskData(today);
+          if(!save('daily-tasks',taskData)){setText('task-save-status','⚠ Impossible de sauvegarder les coches sur cet appareil.');}
+          renderDailyTasks();
+        }
+      }
+      function toggleTask(child,index){
+        ensureDailyTasks();
+        taskData[child][index]=!taskData[child][index];
+        if(!save('daily-tasks',taskData)){setText('task-save-status','⚠ Impossible de sauvegarder les coches sur cet appareil.');}
+        else{setText('task-save-status','✓ Les coches sont gardées sur cet iPad et repartent à zéro chaque nouveau jour.');}
+        renderChildTasks(child);
+      }
+      function renderChildTasks(child){
+        var root=el(child+'-tasks'),done=0;
+        while(root.firstChild)root.removeChild(root.firstChild);
+        for(var i=0;i<taskNames.length;i++){
+          (function(index){
+            var checked=taskData[child][index]===true;
+            if(checked)done++;
+            var button=document.createElement('button');
+            button.type='button';
+            button.className='task-button'+(checked?' is-done':'');
+            button.setAttribute('aria-pressed',checked?'true':'false');
+            button.setAttribute('aria-label',taskNames[index]+' — '+(checked?'fait':'à faire'));
+            var check=document.createElement('span');
+            check.className='check-square';check.setAttribute('aria-hidden','true');check.textContent='✓';
+            var text=document.createElement('span');text.className='task-label';text.textContent=taskNames[index];
+            button.appendChild(check);button.appendChild(text);
+            button.addEventListener('click',function(){toggleTask(child,index);});
+            root.appendChild(button);
+          })(i);
+        }
+        setText(child+'-count',done+' / '+taskNames.length);
+        el(child+'-bar').style.width=(done/taskNames.length*100)+'%';
+        el(child+'-progress').setAttribute('aria-valuenow',String(done));
+        var status=el(child+'-message');
+        status.className='progress-message'+(done===taskNames.length?' completed':'');
+        status.textContent=done===taskNames.length?'Bravo ! Tout est fait pour aujourd’hui 🎉':(done===0?'C’est parti !':(taskNames.length-done)+' mission'+(taskNames.length-done>1?'s':'')+' encore à faire');
+      }
+      function renderDailyTasks(){
+        setText('tasks-today','Aujourd’hui · '+taskData.date.split('-').reverse().join('/'));
+        renderChildTasks('arthur');renderChildTasks('lea');
+      }
+
       var events=read('events',[]);if(!Array.isArray(events))events=[];
       function renderEvents(){var today=dateKey(new Date());var upcoming=events.filter(function(e){return e&&typeof e.title==='string'&&typeof e.date==='string'&&e.date>=today;}).sort(function(a,b){return (a.date+' '+(a.time||'99:99')).localeCompare(b.date+' '+(b.time||'99:99'));}).slice(0,4);var list=el('events');while(list.firstChild)list.removeChild(list.firstChild);if(!upcoming.length){var p=document.createElement('p');p.className='empty';p.textContent='Aucun événement à venir. Ajoute un rendez-vous ou une activité familiale.';list.appendChild(p);return;}upcoming.forEach(function(e){var row=document.createElement('div');row.className='event';var dt=document.createElement('div');dt.className='event-date';var date=shortDate(e.date);var d=document.createElement('div');d.className='event-day';d.textContent=date.day;var m=document.createElement('div');m.className='event-month';m.textContent=date.month;dt.appendChild(d);dt.appendChild(m);var content=document.createElement('div');content.className='event-content';var name=document.createElement('div');name.className='event-name';name.textContent=e.title;var when=document.createElement('div');when.className='event-hour';when.textContent=capitalize(dayName(e.date))+(e.time?' · '+e.time:' · toute la journée');content.appendChild(name);content.appendChild(when);var remove=document.createElement('button');remove.className='event-remove';remove.textContent='×';remove.title='Supprimer';remove.setAttribute('aria-label','Supprimer '+e.title);remove.addEventListener('click',function(){if(window.confirm('Supprimer « '+e.title+' » ?')){events=events.filter(function(item){return item.id!==e.id;});save('events',events);renderEvents();}});row.appendChild(dt);row.appendChild(content);row.appendChild(remove);list.appendChild(row);});}
       function modal(id,show){el(id).className=show?'modal-mask visible':'modal-mask';}
@@ -150,7 +256,7 @@
       el('settings-open').addEventListener('click',function(){el('settings-city').value=city.name;modal('settings-modal',true);});
       el('settings-cancel').addEventListener('click',function(){modal('settings-modal',false);});
       el('settings-form').addEventListener('submit',function(evt){evt.preventDefault();var name=el('settings-city').value.replace(/^\s+|\s+$/g,'');if(!name)return;var lowered=name.toLowerCase();if(lowered==='mutters'){city={name:'Mutters',lat:47.228,long:11.378};save('city',city);modal('settings-modal',false);refreshWeather();return;}if(lowered==='innsbruck'){city={name:'Innsbruck',lat:47.2692,long:11.4041};save('city',city);modal('settings-modal',false);refreshWeather();return;}var url='https://geocoding-api.open-meteo.com/v1/search?name='+encodeURIComponent(name)+'&count=1&language=fr&format=json';setText('weather-update','Recherche de la ville…');requestJSON(url,function(err,data){if(err||!data||!data.results||!data.results.length){window.alert('Ville introuvable ou connexion indisponible. Réessaie avec un autre nom.');return;}var place=data.results[0];city={name:place.name,lat:place.latitude,long:place.longitude};save('city',city);modal('settings-modal',false);refreshWeather();});});
-      tick();window.setInterval(tick,10000);renderEvents();var cache=read('weather',null);if(cache&&cache.city===city.name)displayWeather(cache.data,true);refreshWeather();window.setInterval(refreshWeather,30*60*1000);
+      ensureDailyTasks();renderDailyTasks();tick();window.setInterval(tick,10000);renderEvents();var cache=read('weather',null);if(cache&&cache.city===city.name)displayWeather(cache.data,true);refreshWeather();window.setInterval(refreshWeather,30*60*1000);
       document.addEventListener('visibilitychange',function(){if(!document.hidden){tick();refreshWeather();}});
     })();
   </script>
